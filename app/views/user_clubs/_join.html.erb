@@ -1,0 +1,4 @@
+<%= form_for UserClub.new, remote: true do |f| %>
+  <%= f.hidden_field :club_id, value: @club.id %>
+  <%= f.submit "Join", class: "button big in-out" %>
+<% end %>

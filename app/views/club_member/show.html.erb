@@ -1,0 +1,39 @@
+<!-- Banner -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<section id="banner">
+  <div class="content">
+    <header>
+      <h1><%= @club.name %></h1>
+      <p><%= @club.description %></p>
+    </header>
+    <p>
+      <div>
+        <span class="notication"><i><b>Notication:</b></i></span>
+        <%= @club.notification %>
+      </div>
+      <div>
+        <span class="notication"><i>Money:</i></span>
+        <i><%= @club.money %></i>
+      </div>
+      <div class="raings">
+        <%= render "ratings/rating" %>
+      </div>
+    </p>
+
+    <% if is_management? @club %>
+    <ul class="actions">
+      <li>
+      <a href="#detail_club_modal" data-toggle="modal" class="button big icon fa-pencil-square-o"><%= t "edit" %></a>
+      </li>
+    </ul>
+    <% end %>
+    <div class="join_leave_toggle">
+      <%= render "user_clubs/form_join_leave" %>
+    </div>
+  </div>
+  <span class="image object">
+    <img src="http://wallpapercave.com/wp/sIggTrG.jpg" />
+  </span>
+</section>
+  <%= render "poopups/edit_detail_club" %>
+  <%= render "management/events/index" %>

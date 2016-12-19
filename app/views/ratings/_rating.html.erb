@@ -1,0 +1,4 @@
+<%= number_field_tag :rating, @club.rating.round,
+  class: "rating", "data-min": 1, "data-max": 5 %>
+<%= hidden_field_tag :club_id, @club.id %>
+<p class="rating_rs">Ratings: <%= @club.rating %></p>

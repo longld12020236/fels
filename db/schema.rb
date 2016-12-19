@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(version: 20161216044903) do
     t.integer  "user_id"
     t.integer  "club_id"
     t.boolean  "is_manager", default: false
+    t.boolean  "status"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.index ["club_id"], name: "index_user_clubs_on_club_id"

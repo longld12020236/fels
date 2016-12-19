@@ -1,0 +1,7 @@
+<% if status_user_club(@club).nil? %>
+  <%= render "user_clubs/join" %>
+<% elsif status_user_club(@club) %>
+  <%= render "user_clubs/leave" %>
+<% else %>
+  <%= render "user_clubs/cancel" %>
+<% end %>

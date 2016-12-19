@@ -46,3 +46,7 @@ config/database.yml
 
 # Ignore gemfile.log
 Gemfile.lock
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

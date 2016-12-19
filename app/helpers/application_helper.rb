@@ -22,4 +22,11 @@ module ApplicationHelper
   def flash_error object
     flash[:danger] = object.errors.full_messages
   end
+
+  def admin_verify
+    unless current_user.role == "admin"
+      flash[:danger] = t("require_admin")
+      redirect_to root_url
+    end
+  end
 end

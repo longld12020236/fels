@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20161216044903) do
   create_table "clubs", force: :cascade do |t|
     t.integer  "organization_id"
     t.string   "name"
+    t.string   "image"
+    t.integer  "chatwork"
     t.string   "notification"
     t.string   "description"
     t.integer  "money",           default: 0

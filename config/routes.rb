@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :clubs
   end
+  resources :users
+  namespace :admin do
+    resources :organizations
+  end
+  resources :organizations, only: :show
 end

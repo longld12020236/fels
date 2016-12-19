@@ -1,43 +1,143 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
 .innerpage {
   margin-top: 50px;
 }
+
 .bootstrap-select button {
   color: #9b8f8f!important;
   text-transform: none!important;
   font-family: Open Sans!important;
   font-size: 1em;
 }
+
 .bootstrap-select button:hover {
   background-color: transparent!important;
 }
+
 dropdown-menu:hover {
   background-color: red!important;
 }
+
 .btn-default:active,
 .btn-default.active,
 .open > .btn-default.dropdown-toggle {
   background-color: transparent;
 }
+
 .bootstrap-select.btn-group .dropdown-menu li a {
   border-bottom: 1px solid #cecece!important;
 }
+
 .text_area {
   min-width: 50em;
   min-height: 8em;
 }
+
 #hour,
 #days {
   height: 40px;
   border-radius: 5px;
   border: solid 1px #cecece;
 }
+
 #hour {
   float: left;
   margin-right: 10px;
   width: 80%;
 }
+
 .hint {
   margin: 5px;
+}
+
+.dropdown-menu{
+  left:-120px;
+}
+
+.user-row {
+  margin-bottom: 14px;
+}
+
+.user-row:last-child {
+  margin-bottom: 0;
+}
+
+.dropdown-user {
+  margin: 13px 0;
+  padding: 5px;
+  height: 100%;
+}
+
+.dropdown-user:hover {
+  cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+  border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+  border-top: 0;
+}
+
+.table-user-information > tbody > tr > td {
+  border-top: 0;
+}
+
+.toppad{
+  margin-top:20px;
+}
+
+.right{
+  float: right;
+}
+
+.circle-profile {
+  width: 200px;
+  height: 200px;
+  background: red;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 1000px;
+}
+.notication{
+text-decoration: underline;
+}
+.glyphicon{
+font-size:30px;
+color:orange;
+}
+.glyphicon:hover{
+color: #FF6347;
+}
+.rating-input{
+float:left;
+margin-right:10px;
+}
+.rating_rs{
+font-size:22px;
+}
+.in-out{
+width:40%;
+}
+.nav-event{
+color:#F56A6A;
+font-family: Raleway;
+font-style: Italic;
+border-bottom: solid 1px #cecece;
+margin-bottom:15px;
+}
+footer-session{
+border-top: solid 1px #cecece;
+float:right;
+font-style: Italic;
+}
+a{
+border:none!important;
+color:#ff2f2f!important;
+}
+li{
+  list-style:none;
 }

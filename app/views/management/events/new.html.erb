@@ -7,7 +7,7 @@
           <div class="form-group">
             <%= f.label t "choose_club" %>
             <%= f.select :club_id,
-              @clubs.collect {|item| [Club.alias(item), item.id]}, {},
+              @clubs.collect {|item| [Club.alias(item), item.club_id]}, {},
               {class: "form-control selectpicker", "data-live-search": true} %>
           </div><br>
           <div class="form-group">
@@ -45,7 +45,7 @@
             <%= f.text_area :description, class: "text_area" %>
           </div>
           <div class="form-group">
-            <%= f.submit t "event_request" %>
+            <%= f.submit t "create" %>
           </div>
         <% end %>
       </div>

@@ -21,6 +21,12 @@
             <%= link_to t("post_entry"), t("href"),
               class: "icon fa-pencil" %>
           </li>
+          <% if current_user.role == "admin" %>
+            <li>
+              <%= link_to " New Organization", new_admin_organization_path,
+                class: "icon fa-ils" %>
+            </li>
+          <% end %>
           <li>
             <%= link_to t("new_event"), t("href"),
               class: "icon fa-ils" %>

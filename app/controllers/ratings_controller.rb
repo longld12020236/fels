@@ -16,11 +16,5 @@ class RatingsController < ApplicationController
     (@club.rating.to_f * old_rate_count + params[:rating].to_i)/(old_rate_count + 1)
   end
 
-  def create_acivity target, action
-    activity = Activity.new target: target, action: action, user_id: current_user.id
-    unless activity.save
-      flash_error activity
-      redirect_to root_url
-    end
-  end
+
 end

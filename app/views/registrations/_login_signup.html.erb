@@ -14,6 +14,7 @@
                     html: {id: "logFrm", class: "log-frm",
                     name: "logFrm"} do |f| %>
                     <ul>
+
                       <%= f.label :email %>
                       <%= f.email_field :email, placeholder: "email",
                         class: "form-control" %>
@@ -37,6 +38,10 @@
                   <%= form_for :user, url: user_registration_path,
                     html: {id: "userRegisterFrm", class: "log-frm",
                     name: "userRegisterFrm"} do |f| %>
+                    <%= f.label :organization %>
+                    <%= f.select :organization_id,
+                        Organization.all.collect {|item| [ item.name, item.id ]}, {},
+                        {class: "form-control selectpicker", "data-live-search": true} %><br><br>
                     <%= f.label :full_name %>
                     <%= f.text_field :full_name,
                       placeholder: t("session.name"), class: "form-control" %>

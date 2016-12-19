@@ -1,4 +1,5 @@
 class ClubRequestsController < ApplicationController
+
   def new
     @club_request = ClubRequest.new
   end

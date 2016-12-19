@@ -6,6 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :reset_password_token
       t.datetime :reset_password_sent_at
       t.datetime :remember_created_at
+      t.references :organization, foreign_key: true
       t.string :full_name
       t.string :avatar
       t.string :phone

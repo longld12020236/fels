@@ -9,6 +9,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
+
 ActiveRecord::Schema.define(version: 20161216044903) do
 
   create_table "activities", force: :cascade do |t|
@@ -33,8 +34,8 @@ ActiveRecord::Schema.define(version: 20161216044903) do
     t.integer  "organization_id"
     t.integer  "user_id"
     t.string   "name"
-    t.string   "notification"
     t.text     "description"
+    t.string   "action"
     t.boolean  "approve",         default: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
@@ -74,8 +75,8 @@ ActiveRecord::Schema.define(version: 20161216044903) do
     t.date     "date_start"
     t.string   "duration"
     t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["club_id"], name: "index_event_requests_on_club_id"
     t.index ["user_id"], name: "index_event_requests_on_user_id"
   end
@@ -126,6 +127,22 @@ ActiveRecord::Schema.define(version: 20161216044903) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "requests", force: :cascade do |t|
+    t.integer  "category_request_id"
+    t.integer  "user_id"
+    t.integer  "target_id"
+    t.string   "target_type"
+    t.string   "content"
+    t.date     "date_start"
+    t.string   "duration"
+    t.string   "location"
+    t.boolean  "approve",             default: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["category_request_id"], name: "index_requests_on_category_request_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
   create_table "user_clubs", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "club_id"
@@ -153,6 +170,7 @@ ActiveRecord::Schema.define(version: 20161216044903) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer  "organization_id"
     t.string   "full_name"
     t.string   "avatar"
     t.string   "phone"
@@ -170,6 +188,7 @@ ActiveRecord::Schema.define(version: 20161216044903) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["organization_id"], name: "index_users_on_organization_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

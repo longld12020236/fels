@@ -1,7 +1,6 @@
 //= require skel
 //= require util
 //= require main
-//= require bootstrap_support
 //= require bootstrap-select
 //= require moment
 

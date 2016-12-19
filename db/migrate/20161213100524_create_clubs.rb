@@ -3,6 +3,8 @@ class CreateClubs < ActiveRecord::Migration[5.0]
     create_table :clubs do |t|
       t.references :organization, foreign_key: true
       t.string :name
+      t.string :image
+      t.integer :chatwork
       t.string :notification
       t.string :description
       t.integer :money, default: 0

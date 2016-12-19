@@ -22,4 +22,8 @@ module ApplicationHelper
   def flash_error object
     flash[:danger] = object.errors.full_messages
   end
+  def is_management? club
+    club = UserClub.club_scope(current_user).find_by(club_id: club.id)
+    club.is_manager if club
+  end
 end

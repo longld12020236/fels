@@ -10,6 +10,7 @@ Organization.create!(
 
 User.create!(
   email: "mahoangtienthanh@gmail.com",
+  organization_id: 1,
   full_name: "Thanh ManCi",
   password: "mahoangtienthanh@gmail.com",
   phone: "0966.077.747",
@@ -18,6 +19,7 @@ User.create!(
 )
 User.create!(
   email: "longlyduc@gmail.com",
+  organization_id: 1,
   full_name: "Ly Duc Long",
   password: "longlyduc@gmail.com",
   phone: "0123456789",

@@ -1,0 +1,5 @@
+$('.raings').html('');
+$('.raings').html('<%=j render "rating" %>');
+$('.rating').rating();
+$('.rating_rs').text('Ratings: <%= @club.rating %>');
+$(".glyphicon").css("pointer-events", "none");

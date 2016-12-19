@@ -1,4 +1,7 @@
 en:
+  new_club: "New Club"
+  update_club: "Update Club"
+  succsess_create: "Success for Create!"
   create: "Create"
   club_name: "Club Name"
   descriptions_event: "Description's Event"

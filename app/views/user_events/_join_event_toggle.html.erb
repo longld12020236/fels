@@ -1,0 +1,10 @@
+<div class="join_event_toggle">
+  <h3>Will you join this Event?
+    <% unless join_event? @event %>
+    <%= render "user_events/join_event" %>
+    <% else %>
+    <%= render "user_events/un_join_event" %>
+    <% end %>
+    <div class="space alert"></div>
+  </h3>
+</div>

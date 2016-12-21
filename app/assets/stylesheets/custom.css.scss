@@ -206,6 +206,7 @@ $table-header-border: 1px solid #FFF;
     border: $outer-border;
 
     tr {
+      cursor: pointer;
       border: $cell-border;
       &:nth-child(odd) { // highlight the odd rows with a color
         background-color: $highlight-color;

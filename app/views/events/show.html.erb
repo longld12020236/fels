@@ -10,6 +10,12 @@
     <div class="space">|</div>
     <%= "Location: #{@event.location}" %>
     <div class="space">|</div>
+    Number member join: <%=  link_to "#{num_member_joins @event}",
+      list_users_path(id: attribute_object_array(UserEvent.member_joins(@event), "user_id")) %>
+    <div class="space">|</div>
+    <% if is_management? @event.club %>
+    <% else %>
+    <% end %>
   </section>
   <p>Praesent ac adipiscing ullamcorper semper ut amet ac risus. Lorem sapien ut odio odio nunc. Ac adipiscing nibh porttitor erat risus justo adipiscing adipiscing amet placerat accumsan. Vis. Faucibus odio magna tempus adipiscing a non. In mi primis arcu ut non accumsan vivamus ac blandit adipiscing adipiscing arcu metus praesent turpis eu ac lacinia nunc ac commodo gravida adipiscing eget accumsan ac nunc adipiscing adipiscing lorem ipsum dolor sit amet nullam veroeros adipiscing.</p>
   <footer-session>
@@ -21,3 +27,4 @@
     <%= render "user_events/join_event_toggle" %>
   </section>
 </section>
+<hr>

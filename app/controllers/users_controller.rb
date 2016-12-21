@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
   before_action :user_signed_in
-  before_action :load_user
+  before_action :load_user, except: :index
   before_action :correct_user, only: [:edit, :update]
+
+  def index
+    @users = User.custom_user(params[:id]).paginate(page: params[:page],
+      per_page: Settings.per_page)
+  end
 
   def show
   end

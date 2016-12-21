@@ -17,4 +17,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: Settings.min_password}
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :trackable, :validatable
+
+  def self.custom_user id_array
+    self.where("id IN (?)",id_array)
+  end
 end

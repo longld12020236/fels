@@ -7,6 +7,9 @@ $(document).on('turbolinks:load', function() {
   $('.datepicker').datetimepicker({
     format: 'YYYY-MM-D HH:MM'
   });
+  $(".responstable tr[data-link]").click(function() {
+    window.location = $(this).data("link")
+  });
   $('#event_rq_form').submit(function() {
     var days = $("#days").val();
     if(days.length == 0 || parseInt(days) <= 0){days = 0}

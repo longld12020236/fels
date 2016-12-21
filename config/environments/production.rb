@@ -49,6 +49,15 @@ Rails.application.configure do
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'gmail.com',
+  user_name:            'longlyduc@gmail.com',
+  password:             'longlong1',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 

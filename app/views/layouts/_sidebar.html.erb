@@ -21,12 +21,6 @@
             <%= link_to t("post_entry"), t("href"),
               class: "icon fa-pencil" %>
           </li>
-          <% if current_user.role == "admin" %>
-            <li>
-              <%= link_to " New Organization", new_admin_organization_path,
-                class: "icon fa-ils" %>
-            </li>
-          <% end %>
           <li>
             <%= link_to t("new_event"), t("href"),
               class: "icon fa-ils" %>
@@ -39,32 +33,19 @@
             <%= link_to t("other_club"), t("href"),
               class: "icon fa-list" %>
           </li>
+          <% if current_user.role == "admin" %>
+            <li>
+              <%= link_to t("approve_request"), admin_club_requests_path,
+                class: "icon fa-ils" %>
+            </li>
+            <li>
+              <%= link_to " New Organization", new_admin_organization_path,
+                class: "icon fa-ils" %>
+            </li>
+          <% end %>
           <li>
             <span class="opener">
               <%= t "send_request" %>
-            </span>
-            <ul>
-              <li>
-                <%= link_to t("other_club"), t("href"),
-                  class: "icon fa-list" %>
-              </li>
-              <li>
-                <%= link_to t("other_club"), t("href"),
-                  class: "icon fa-list" %>
-              </li>
-              <li>
-                <%= link_to t("other_club"), t("href"),
-                  class: "icon fa-list" %>
-              </li>
-              <li>
-                <%= link_to t("other_club"), t("href"),
-                  class: "icon fa-list" %>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span class="opener">
-              <%= t "approve_request" %>
             </span>
             <ul>
               <li>

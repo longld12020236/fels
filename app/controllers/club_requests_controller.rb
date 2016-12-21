@@ -1,4 +1,5 @@
 class ClubRequestsController < ApplicationController
+  before_action :user_signed_in
 
   def new
     @club_request = ClubRequest.new
@@ -7,6 +8,7 @@ class ClubRequestsController < ApplicationController
   def create
     request = ClubRequest.new request_params
     if request.save
+      ApplicationMailer.sent_request_club.deliver
       flash[:success] = t("success_create")
     else
       flash_error request

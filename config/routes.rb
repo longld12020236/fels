@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :club_requests
   resources :events, only: :show
   resources :likes, only: [:create, :destroy]
+  resources :user_events, only: [:create, :destroy]
   resources :ratings, only: :create
   resources :user_clubs, only: [:create, :destroy, :update]
   resources :club_member

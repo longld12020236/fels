@@ -1,0 +1,5 @@
+<%= form_for UserEvent.new, remote: true do |f| %>
+  <%= hidden_field_tag :id, @event.id %>
+  <span class="fa fa-hand-o-right" ></span>
+  <%= f.submit "Join", id: "join_button"%>
+<% end %>

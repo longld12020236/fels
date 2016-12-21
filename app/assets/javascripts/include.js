@@ -1,8 +1,4 @@
-//= require skel
-//= require util
-//= require main
-//= require bootstrap-select
-//= require moment
+
 
 function ayantoggle(){
   $(".forgot").slideToggle('slow');

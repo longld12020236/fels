@@ -5,7 +5,7 @@ class Club < ApplicationRecord
   has_many :user_events, dependent: :destroy
   has_many :requests, as: :target, dependent: :destroy
   has_many :activities, dependent: :destroy
-    has_many :users, through: :user_clubs
+  has_many :users, through: :user_clubs
   belongs_to :organization
 
   def self.alias user_club

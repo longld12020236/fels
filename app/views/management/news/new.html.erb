@@ -4,13 +4,7 @@
       <div class="form-group">
         <h3><%= t "new_news" %></h3>
         <%= form_for [:management, @news] do |f| %>
-          <div class="form-group">
-            <%= f.label t "question_organization" %>
-            <%= f.select :event_id,
-              @clubs.collect {|item| [item.name, item.id]}, {},
-              {class: "form-control selectpicker", "data-live-search": true} %>
-          </div><br>
-          <%= select_tag "foo[bar]", grouped_options_for_select(@clubs_option)  %>
+          <%= f.hidden_field :event_id, value: @event_id %>
           <div class="form-group">
             <%= f.label t "title_news" %>
             <%= f.text_field :title %>

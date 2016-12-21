@@ -1,7 +1,6 @@
 class UserClub < ApplicationRecord
   belongs_to :user
   belongs_to :club
-  has_many :clubs, through: :user_clubs
 
 
   def self.user_club_scope user

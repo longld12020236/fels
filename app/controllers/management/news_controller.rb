@@ -1,21 +1,8 @@
 class Management::NewsController < ApplicationController
-
+  before_action :load_news, only: :show
   def new
-    user_club = UserClub.user_club_scope current_user
-    array_id = attribute_object_array user_club, :club_id
-    @clubs = Club.where("id IN (?)", array_id)
-    @clubs_option = @clubs.map {
-      |club| [club.name,
-        club.events.map {
-          |event| [event.name,event.id]
-        }
-      ]
-    }
-    # @clubs = Club.all(:include => :UserClub)
     @news = News.new
-    @options_for_select = @clubs.map do |club|
-      [club.name,club.events.map(&:name)]
-    end
+    @event_id = params[:event_id]
   end
 
   def create
@@ -37,7 +24,15 @@ class Management::NewsController < ApplicationController
 
   private
   def news_params
-    params.require(:news).permit(:club_id, :title, :content).merge! user_id: current_user.id
+    params.require(:news).permit(:event_id, :title,
+      :content).merge! user_id: current_user.id, approve: true
+  end
+
+  def load_news
+    @news = News.find_by id: params[:id]
+    unless @news
+      flash[:danger] = t("not_found")
+    end
   end
 
 end

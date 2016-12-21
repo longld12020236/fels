@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :images
   has_many :comments, dependent: :destroy
   has_many :news, dependent: :destroy
-
+  has_many :clubs, through: :user_clubs
+  has_many :events, through: :user_events
   belongs_to :organization
 
   enum role: {admin: 1, manager: 2, member: 3}
@@ -17,8 +18,4 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: Settings.min_password}
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :trackable, :validatable
-
-  def self.custom_user id_array
-    self.where("id IN (?)",id_array)
-  end
 end

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :events
   end
   namespace :admin do
+    resources :club_requests
     resources :clubs
     resources :organizations
   end

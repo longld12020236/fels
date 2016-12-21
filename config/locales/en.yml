@@ -88,3 +88,6 @@ en:
     avatar_change: "Upload a different photo..."
     cannot_updated: "You need enter password"
     profile_updated: "Updated successfull"
+  time:
+    formats:
+      date: "%H:%M %d/%m/%Y"

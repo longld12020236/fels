@@ -50,4 +50,8 @@ module ApplicationHelper
     club = UserClub.club_scope(current_user).find_by(club_id: club.id)
     club.is_manager if club
   end
+
+  def admin
+    User.find_by role: 1
+  end
 end

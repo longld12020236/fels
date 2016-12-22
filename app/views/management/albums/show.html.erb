@@ -1,0 +1,28 @@
+<div class="well well-sm">
+  <strong><%= t "display" %></strong>
+  <div class="btn-group">
+    <a href="#" id="list" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-th-list">
+    </span>
+    <%= t "list" %></a><a href="#" id="grid" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-th">
+    </span><%= t "grid" %></a>
+  </div>
+  <div class="right">
+    <%= link_to "Edit", edit_management_album_path(@album), class: "btn btn-default" %>
+    <%= link_to t("new_image"), new_image_path, class: "btn btn-default" %>
+  </div>
+</div>
+<div id="products" class="row list-group">
+  <% @images.each do |image| %>
+    <div class="item  col-xs-4 col-lg-4">
+      <div class="thumbnail">
+        <%= image_tag image.url.to_s, class: "group list-group-image img"  %>
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+          <%= link_to image.name, "#" %></h4>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -8,8 +8,8 @@ class EventsController < ApplicationController
   def load_event
     @event = Event.find_by id: params[:id]
     unless @event
-      flash[:danger] = t("not_found")
-      redirect_to root_url
+      flash_error @event
+      redirect_to :back
     end
   end
 end

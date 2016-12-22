@@ -1,0 +1,21 @@
+<table class="responstable">
+  <tr>
+    <th>Requester</th>
+    <th>Request create at</th>
+    <th>Action</th>
+  </tr>
+  <% @user_clubs.each do |user_club|%>
+    <tr>
+      <td><%= user_club.user.full_name %></td>
+      <td><%= l user_club.created_at, format: :date %></td>
+      <td>
+        <%= link_to [:management, user_club], method: :delete, data: {confirm: "confirm_delete"} do %>
+          <span class="glyphicon glyphicon-trash" title="Delete"></span>
+        <% end %>
+        <%= link_to edit_management_user_club_path(user_club) do %>
+          <span class="glyphicon glyphicon-edit right" title="Edit"></span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

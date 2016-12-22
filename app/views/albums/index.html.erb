@@ -1,0 +1,24 @@
+<div class="well well-sm">
+  <strong><%= t "display" %></strong>
+  <div class="btn-group">
+    <a href="#" id="list" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-th-list">
+    </span>
+    <%= t "list" %></a><a href="#" id="grid" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-th">
+    </span><%= t "grid" %></a>
+  </div>
+</div>
+<div id="products" class="row list-group">
+  <% @albums.each do |album| %>
+    <div class="item  col-xs-4 col-lg-4">
+      <div class="thumbnail">
+        <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+        <div class="caption">
+          <h4 class="group inner list-group-item-heading">
+            <%= link_to album.name, album_path(album) %></h4>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

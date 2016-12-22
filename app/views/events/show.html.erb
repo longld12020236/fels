@@ -10,31 +10,14 @@
     <div class="space">|</div>
     <%= "Location: #{@event.location}" %>
     <div class="space">|</div>
-    <%= link_to "Number member join: #{num_member_joins @event}",
-      list_users_path(object: @event, model: "Event") %>
-    <div class="space"></div>
-    <% @event.users.limit(10).each do |user| %>
-      <%= image_tag user.avatar, class: "circle small_img" %>
-    <% end %>...
   </section>
-  <p><%= @event.description.html_safe %></p>
+  <p>Praesent ac adipiscing ullamcorper semper ut amet ac risus. Lorem sapien ut odio odio nunc. Ac adipiscing nibh porttitor erat risus justo adipiscing adipiscing amet placerat accumsan. Vis. Faucibus odio magna tempus adipiscing a non. In mi primis arcu ut non accumsan vivamus ac blandit adipiscing adipiscing arcu metus praesent turpis eu ac lacinia nunc ac commodo gravida adipiscing eget accumsan ac nunc adipiscing adipiscing lorem ipsum dolor sit amet nullam veroeros adipiscing.</p>
   <footer-session>
-    <%= "Post at: #{@event.created_at}" %>
+    <%= "Created at: #{@event.created_at}" %>
+
   </footer-session>
   <section class="choose_event">
-    <h3><%= render "likes/likes_toggle" %></h3>
-      <%= render "user_events/join_event_toggle" %>
-    <div class="action_event">
-    <% if is_management? @event.club %>
-      <%= link_to "Edit", edit_management_event_path(@event), class: "button" %>
-      <div class="space">|</div>
-      <%= link_to "Delete", management_event_path(@event),
-        method: :delete, class: "button", data: {confirm: "Are you sure?"} %>
-      <div class="space">|</div>
-      <%= link_to new_management_news_path(event_id: @event), class: "button" do %>
-        <span class="fa fa-pencil"></span> Write News
-      <% end %>
-    <% end %>
-    </div>
+  <h3><%= render "likes/likes_toggle" %></h3>
+    <%= render "user_events/join_event_toggle" %>
   </section>
 </section>

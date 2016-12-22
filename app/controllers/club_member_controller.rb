@@ -2,8 +2,6 @@ class ClubMemberController < ApplicationController
   include ClubMemberHelper
 
   before_action :load_club, only: [:show, :update]
-  def index
-  end
 
   def show
     @events = @club.events

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216044903) do
+ActiveRecord::Schema.define(version: 20161221163747) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "action"
@@ -28,6 +28,21 @@ ActiveRecord::Schema.define(version: 20161216044903) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["club_id"], name: "index_albums_on_club_id"
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
   end
 
   create_table "club_requests", force: :cascade do |t|
@@ -51,7 +66,7 @@ ActiveRecord::Schema.define(version: 20161216044903) do
     t.string   "notification"
     t.string   "description"
     t.integer  "money",           default: 0
-    t.float    "rating",          default: 0.0
+    t.integer  "rating",          default: 0
     t.boolean  "is_active",       default: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
@@ -99,7 +114,6 @@ ActiveRecord::Schema.define(version: 20161216044903) do
 
   create_table "images", force: :cascade do |t|
     t.string   "name"
-    t.string   "url"
     t.integer  "album_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -150,7 +164,7 @@ ActiveRecord::Schema.define(version: 20161216044903) do
     t.integer  "user_id"
     t.integer  "club_id"
     t.boolean  "is_manager", default: false
-    t.boolean  "status",     default: false
+    t.boolean  "status"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.index ["club_id"], name: "index_user_clubs_on_club_id"

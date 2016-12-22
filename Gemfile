@@ -15,6 +15,9 @@ gem "carrierwave"
 gem "config"
 gem "chatwork"
 gem "figaro"
+gem "ckeditor"
+gem "mini_magick"
+
 group :production do
   gem "pg"
   gem "rails_12factor"

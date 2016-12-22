@@ -6,8 +6,7 @@ class User < ApplicationRecord
   has_many :images
   has_many :comments, dependent: :destroy
   has_many :news, dependent: :destroy
-  has_many :clubs, through: :user_clubs
-  has_many :events, through: :user_events
+
   belongs_to :organization
 
   enum role: {admin: 1, manager: 2, member: 3}

@@ -1,13 +1,7 @@
 class UsersController < ApplicationController
   before_action :user_signed_in
-  before_action :load_user, except: :index
+  before_action :load_user
   before_action :correct_user, only: [:edit, :update]
-
-  def index
-    load_object params[:model]
-    @users = @object.users.paginate(page: params[:page],
-      per_page: Settings.per_page)
-  end
 
   def show
   end
@@ -34,14 +28,6 @@ class UsersController < ApplicationController
     unless @user
       flash[:danger] = t("user.cant_found")
       redirect_to root_url
-    end
-  end
-
-  def load_object object
-    @object = object.constantize.find_by id: params[:object]
-    unless @object
-      flash_error @object
-      redirect_to :back
     end
   end
 end

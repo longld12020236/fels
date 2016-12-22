@@ -3,7 +3,7 @@ module ClubMemberHelper
   def load_club
     @club = Club.find_by_id params[:id]
     unless @club
-      flash[:danger] = "Not Foud"
+      flash[:danger] = t("club_not_found")
       redirect_to root_path
     end
   end

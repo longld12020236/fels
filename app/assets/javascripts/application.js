@@ -19,5 +19,3 @@
 //= require main
 //= require bootstrap-select
 //= require moment
-//= require ckeditor/init
-//= require_tree .

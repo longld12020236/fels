@@ -1,0 +1,24 @@
+<h1>Upload Images</h1>
+<hr>
+<%= form_for @image, html: {multipart: true} do |f| %>
+  <div class="row">
+    <div class="col-lg-9 right">
+      <h4><%= t("chose_image") %></h4>
+      <%= f.file_field :url, class: "form-control" %><br>
+    </div>
+    <div class="col-lg-9 right">
+      <%= f.select :album_id,
+        Album.all.collect {|item| [ item.name, item.id ]}, {},
+        {class: "form-control selectpicker", "data-live-search": true} %><br><br>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    <br></div>
+    <div class="form-group col-lg-9 right">
+      <label class="col-md-3 control-label"></label>
+      <div class="col-md-8">
+        <%= f.submit "create", class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<hr>

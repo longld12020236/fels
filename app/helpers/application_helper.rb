@@ -46,9 +46,21 @@ module ApplicationHelper
     end
   end
 
-  def is_management? club
-    club = UserClub.club_scope(current_user).find_by(club_id: club.id)
+  def manager_verify
+    user = UserClub.find_by user_id: current_user.id
+    unless user.is_manager == true
+      flash[:danger] = t("require_manager")
+      redirect_to root_url
+    end
+  end
+
+  def is_management? clubs
+    club = UserClub.club_scope(current_user).find_by(club_id: clubs.id)
     club.is_manager if club
+  end
+
+  def get_path route_url
+    "#{request.base_url}#{route_url}"
   end
 
   def admin

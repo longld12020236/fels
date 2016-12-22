@@ -15,7 +15,9 @@ class Admin::ClubRequestsController < ApplicationController
     @club_request.approve = true
     @user = User.find_by id: @club_request.user_id
     if @club_request.update_attributes approve: true
-      ApplicationMailer.accepted_request_club(@user).deliver
+      create_club @club_request.name, @club_request.description, @club_request.organization_id
+      create_manager @club_request.user_id, @club.id
+      ApplicationMailer.accepted_request_club(@user, @club).deliver
       flash[:succsess] = t("request_approved")
     else
       flash_error @club_request
@@ -46,6 +48,21 @@ class Admin::ClubRequestsController < ApplicationController
     unless @club_request
       flash[:danger] = "Can not found request"
       redirect_to root_path
+    end
+  end
+
+  def create_club name, description, organization_id
+    @club = Club.new name: name, description: description,
+      organization_id: organization_id, is_active: true
+    unless @club.save
+      flash_error @club
+    end
+  end
+  def create_manager user_id, club_id
+    @manager = UserClub.new user_id: user_id, club_id: club_id, is_manager: true,
+      status: true
+    unless @manager.save
+      flash_error @manager
     end
   end
 end

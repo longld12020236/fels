@@ -1,5 +1,5 @@
 class Management::EventsController < ApplicationController
-  before_action :load_event, only: [:edit, :update, :destroy]
+  before_action :load_event, only: [:edit, :update]
 
   def index
     @event = Event.all
@@ -32,13 +32,6 @@ class Management::EventsController < ApplicationController
       flash_error @event
     end
     redirect_to root_url
-  end
-
-  def destroy
-    unless @event.destroy
-      flash_error @event
-    end
-    redirect_to club_member_url(@event)
   end
 
   private

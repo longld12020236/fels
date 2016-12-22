@@ -1,9 +1,10 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "mahoangtienthanh@gmail.com"
+  default from: "longlyduc@gmail.com"
   layout "mailer"
   include ApplicationHelper
 
-  def accepted_request_club user
+  def accepted_request_club user, club
+    @club = club
     @user = user
     mail(to: @user.email,
       subject: "Your request has been approve!")
